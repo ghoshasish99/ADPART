@@ -1,0 +1,71 @@
+{
+    "id": "54e75344-9488-4ec2-9d90-56d54ed0ab30",
+    "name": "ADPART",
+    "friendlyName": "ADPART",
+    "description": "Use this extension for generating ADPART files",
+    "helpUrl": "Use this plug in to generate ADPART files.",
+    "helpMarkDown": "Use this plug in to generate ADPART files.",
+    "category": "Utility",
+    "visibility": [
+        "Build",
+        "Release"
+    ],
+    "runsOn": [
+        "Agent",
+        "DeploymentGroup"
+    ],
+    "author": "Ashish Ghosh",
+    "version": {
+        "Major": 1,
+        "Minor": 1,
+        "Patch": 8
+    },
+    "demands": [
+        "Cmd"
+    ],
+    "minimumAgentVersion": "1.83.0",
+    "groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+    ],
+    "inputs": [
+        {
+            "name": "command",
+            "type": "string",
+            "label": "Script",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Arguments passed to CMD"
+        },
+        {
+            "name": "workingFolder",
+            "type": "filePath",
+            "label": "Working Directory",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Current working directory when script is run.  Defaults to the folder where the script is located.",
+            "groupName": "advanced"
+        },
+        {
+            "name": "failOnStandardError",
+            "type": "boolean",
+            "label": "Fail on Standard Error",
+            "defaultValue": "false",
+            "required": false,
+            "helpMarkDown": "If this is true, this task will fail if any errors are written to the StandardError stream.",
+            "groupName": "advanced"
+        }
+    ],
+    
+    "instanceNameFormat": "ADPART Test Design",
+    "execution": {
+        "Process": {
+            "target": "$(command)",
+            "argumentFormat": "",
+            "workingDirectory": "$(workingFolder)"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "manifestVersion": 1,
+    "id": "build-release-task-adpart",
+    "name": "ADPART Test Design",
+    "version": "0.0.2",
+    "publisher": "AshishGhosh",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Plugin for Adpart",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+
+        "default": "images/Adpart.png"
+    },
+    
+    "files": [
+        {
+            "path": "buildAndReleaseTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildAndReleaseTask"
+            }
+        }
+    ]
+}
